@@ -92,3 +92,8 @@ The architecture enables scalable, low-power, and GPS-free localization suitable
 
 ---
 
+## Architecture
+
+![GPS-less Localization Architecture](assets/architecture.png)
+
+---
