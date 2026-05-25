@@ -97,3 +97,150 @@ The architecture enables scalable, low-power, and GPS-free localization suitable
 ![GPS-less Localization Architecture](assets/architecture.png)
 
 ---
+
+## Models Used
+
+| Component | Model | Purpose |
+|---|---|---|
+| Multi-Radio Communication | LoRa + BLE + Wi-Fi | Hybrid wireless signal transmission |
+| Feature Engineering | RSSI + SNR + Spatial Features | Signal pattern extraction |
+| Localization Model | Weighted K-Nearest Neighbors (WKNN) | Real-time coordinate prediction |
+| Ensemble Models | Random Forest, ExtraTrees, KNN | Performance comparison and optimization |
+| Physics-Based Estimation | LoRa Trilateration | Coarse location estimation |
+| Evaluation Metric | Haversine Distance | Localization error calculation |
+
+The optimized WKNN model achieved a mean localization error of **9.82 meters**, significantly outperforming traditional single-radio localization methods.
+
+The system combines statistical, spatial, and physics-based features to improve localization robustness in both indoor and outdoor GPS-denied environments.
+
+---
+
+## Technologies Used
+
+| Category | Technologies |
+|---|---|
+| Programming Language | Python |
+| Wireless Communication | LoRa, BLE, Wi-Fi |
+| Machine Learning | Weighted K-Nearest Neighbors (WKNN) |
+| Ensemble Models | Random Forest, ExtraTrees, KNN |
+| Feature Engineering | RSSI, SNR, Spatial Features |
+| Localization Technique | Multi-Radio Fingerprinting |
+| Distance Estimation | LoRa Trilateration |
+| Data Processing | Pandas, NumPy |
+| Visualization | Matplotlib |
+| Evaluation Metrics | Haversine Distance, Cross-Validation |
+| Hardware Platforms | LilyGo T-LoRa C6, Heltec Wi-Fi LoRa 32 |
+| Communication Protocols | LoRaWAN, BLE, IEEE 802.11 (Wi-Fi) |
+| Development Environment | VS Code, Jupyter Notebook |
+
+---
+
+## Features
+
+- Real-time GPS-less localization using hybrid wireless communication
+- Multi-radio fingerprinting with LoRa, BLE, and Wi-Fi
+- Low-power IoT tracking architecture for battery-operated devices
+- RSSI and SNR based signal analysis
+- Statistical, spatial, and physics-based feature engineering
+- Weighted K-Nearest Neighbors (WKNN) localization engine
+- RSSI spread analysis for prediction confidence estimation
+- Iterative Leave-One-Out (LOO) pruning for data refinement
+- Bounding-box analysis for interpolation vs extrapolation evaluation
+- Real-time coordinate prediction with optimized localization accuracy
+- Cross-validation and Haversine distance based performance evaluation
+- Scalable architecture suitable for indoor and outdoor environments
+
+---
+
+## Results
+
+The proposed hybrid localization system successfully achieved reliable GPS-free positioning using multi-radio fingerprinting and machine learning.
+
+```text
+LOCALIZATION SUMMARY
+
+Total grid locations collected: 442
+Final usable locations:       401–417
+Total packets captured:       32,561
+
+Best Model:                   Weighted KNN (WKNN)
+Mean Localization Error:      9.82 meters
+Baseline Error:               ~22.8 meters
+Error Reduction Achieved:     57%
+
+Evaluation Metrics:
+- Mean Absolute Error (MAE)
+- Median Error
+- CDF Error Analysis
+- Cross-Validation Performance
+- Zone-wise Accuracy Analysis
+```
+
+--- 
+
+## Usage
+
+```bash
+# Step 1 — Collect Multi-Radio Signal Data
+python collect_data.py
+
+# Step 2 — Perform Feature Engineering
+python feature_engineering.py
+
+# Step 3 — Train the Localization Model
+python train_model.py \
+    --k_neighbors 3 \
+    --enable_loo_pruning true \
+    --cross_validation true \
+    --rssi_threshold 10
+
+# Step 4 — Run Real-Time Localization
+python localization.py \
+    --dataset data/fingerprints.csv \
+    --model wknn \
+    --anchors anchors_config.json \
+    --output predictions.csv
+```
+
+---
+
+## Conclusion
+
+The proposed GPS-less hybrid localization system demonstrates how multi-radio communication and machine learning can be combined to achieve reliable real-time positioning in IoT environments without relying on GPS.
+
+By integrating LoRa, BLE, and Wi-Fi fingerprinting with advanced feature engineering and Weighted K-Nearest Neighbors (WKNN), the system effectively maps wireless signal patterns to physical coordinates with improved accuracy and robustness.
+
+The architecture enables continuous signal acquisition, fingerprint generation, localization prediction, and data refinement, making the solution scalable and suitable for real-world deployment in mixed indoor-outdoor environments.
+
+Through RSSI spread analysis, bounding-box evaluation, and iterative Leave-One-Out (LOO) pruning, the project significantly reduced localization ambiguity and achieved a mean localization error of **9.82 meters**.
+
+This project highlights the potential of low-power hybrid wireless systems for smart campuses, asset tracking, logistics, and next-generation IoT localization applications in GPS-denied environments.
+
+---
+
+## Future Scope
+
+- Expand anchor deployment for wider localization coverage
+- Increase fingerprint dataset density for improved spatial accuracy
+- Implement 3D localization using multi-level anchor placement
+- Enhance localization robustness in dense indoor environments
+- Integrate deep learning models for advanced signal pattern recognition
+- Develop real-time localization dashboards and monitoring systems
+- Improve RSSI filtering and adaptive signal calibration techniques
+- Deploy the system on edge and embedded IoT devices
+- Explore hybrid localization using additional wireless technologies
+- Implement dynamic confidence estimation for unreliable predictions
+- Optimize scalability for smart campus and large-scale asset tracking applications
+- Reduce localization error further using advanced ensemble learning techniques
+
+---
+
+## Authors
+
+- **Adithya Ajikumar**
+- **Joseph Alex Valluvassery**
+- **S Saran**
+
+**School of Electronics Engineering**  
+Vellore Institute of Technology, Chennai  
+April 2026
