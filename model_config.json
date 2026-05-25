@@ -1,0 +1,22 @@
+{
+  "knn_k": 2,
+  "n_training_points": 162,
+  "n_original_points": 442,
+  "n_removed": 280,
+  "cv_mae_m": 9.822,
+  "cv_median_m": 9.482,
+  "cv_p90_m": 17.474,
+  "pruning_iterations": 4,
+  "final_threshold_m": 25,
+  "n_features": 100,
+  "valid_anchors": [
+    "A1",
+    "A2",
+    "A3",
+    "A4",
+    "A5"
+  ],
+  "rssi_floor": -120.0,
+  "snr_floor": -20.0,
+  "expected_lora_count": 30
+}
